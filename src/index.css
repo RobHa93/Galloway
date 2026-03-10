@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-forest-900: #1a2e26;
+  --color-forest-800: #1E3329;
+  --color-forest-700: #2D4A3E;
+  --color-forest-600: #3D6B59;
+  --color-forest-500: #4e8a72;
+  --color-forest-100: #e8f0ec;
+  --color-forest-50: #f2f7f4;
+
+  --color-slate-700: #334155;
+  --color-slate-600: #475569;
+  --color-slate-500: #64748B;
+  --color-slate-400: #94a3b8;
+  --color-slate-200: #e2e8f0;
+  --color-slate-100: #f1f5f9;
+
+  --color-offwhite: #F5F0E8;
+  --color-offwhite-dark: #EAE3D6;
+  --color-offwhite-darker: #DDD5C5;
+
+  --color-gold-900: #7c5a00;
+  --color-gold-700: #B8860B;
+  --color-gold-500: #C9A84C;
+  --color-gold-400: #D4B86A;
+  --color-gold-100: #fdf3dc;
+
+  --color-leather-800: #4a2a17;
+  --color-leather-700: #6B3E26;
+  --color-leather-500: #8B5E3C;
+  --color-leather-200: #d4a882;
+  --color-leather-100: #f0ddd0;
+
+  --color-ink: #1C1C1C;
+  --color-ink-light: #2d2d2d;
+
+  /* Fonts */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+
+  /* Spacing extras */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-88: 22rem;
+  --spacing-120: 30rem;
+
+  /* Border radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+}
+
+/* Base resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-offwhite);
+  color: var(--color-ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Typography utilities */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Scroll animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-offwhite-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-forest-600);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-forest-700);
+}
+
+/* Gold divider line */
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold-700), var(--color-gold-400));
+  margin: 1rem 0;
+}
+
+/* Section spacing */
+section {
+  scroll-margin-top: 80px;
+}
