@@ -1,17 +1,46 @@
 import { Calendar, Tag, ArrowRight, MapPin } from 'lucide-react'
-import { newsItems } from '../data/content'
+
+const hubelstuebliNews = [
+  {
+    id: 1,
+    category: 'Eventlocation',
+    dateStr: 'Ganzjährig buchbar',
+    title: 'Feiern im Hübelstübli',
+    excerpt:
+      'Unser Hübelstübli ist die passende Location für kleine Anlässe bis 35 Personen. Ob Geburtstagsfeier, Weihnachtsanlass, Apéro oder Generalversammlung: Wir begleiten Ihren Anlass persönlich und unkompliziert.',
+    image: 'https://www.galloway-schweiz.ch/assets/Images/Einkaufen-Degustieren/IMG_6437__FocusFillWyIwLjAwIiwiMC4wMCIsMTM2Niw2ODNd.jpg',
+  },
+  {
+    id: 2,
+    category: 'Business',
+    dateStr: 'Nach Vereinbarung',
+    title: 'Seminare & Firmenanlässe',
+    excerpt:
+      'Für Teams und Unternehmen bietet das Hübelstübli einen ruhigen, ländlichen Rahmen für Sitzungen, Workshops und kleinere Seminare mit regionaler Verpflegung.',
+    image: 'https://plus.unsplash.com/premium_photo-1667514668700-9be133c3dc20?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+  {
+    id: 3,
+    category: 'Privat',
+    dateStr: 'Wochenende & Abendtermine',
+    title: 'Private Feiern mit Hofcharakter',
+    excerpt:
+      'Von der kleinen Familienfeier bis zum Apéro mit Freunden: Das Hübelstübli verbindet gemütliche Atmosphäre mit Produkten direkt vom Hof.',
+    image: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
+]
 
 const categoryColor = {
-  'Veranstaltung': '#2D4A3E',
-  'Züchtung': '#B8860B',
-  'Nachhaltigkeit': '#3D6B59',
+  Eventlocation: '#2D4A3E',
+  Business: '#B8860B',
+  Privat: '#3D6B59',
 }
 
 const upcomingEvents = [
-  { date: '15. Apr 2026', title: 'Generalversammlung Galloway Schweiz', location: 'Bern, Kursaal' },
-  { date: '24. Mai 2026', title: 'Galloway-Schautag Nordwestschweiz', location: 'Birseck, BL' },
-  { date: '12. Jul 2026', title: 'Nationaler Zuchtpreis 2026', location: 'Brugg, AG' },
-  { date: '06. Sep 2026', title: 'Herbsttreffen Züchtergemeinschaft', location: 'Luzern' },
+  { date: '18. Apr 2026', title: 'Frühlings-Apéro im Hübelstübli', location: 'Hübelstübli, Münchwilen AG' },
+  { date: '22. Mai 2026', title: 'After-Work Degustation', location: 'Hübelstübli, Münchwilen AG' },
+  { date: '11. Jul 2026', title: 'Sommerabend mit Hofspezialitäten', location: 'Hübelstübli, Münchwilen AG' },
+  { date: '26. Sep 2026', title: 'Herbstgenuss & Most', location: 'Hübelstübli, Münchwilen AG' },
 ]
 
 export default function Aktuelles() {
@@ -23,7 +52,7 @@ export default function Aktuelles() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
             <div style={{ width: '60px', height: '2px', background: 'linear-gradient(90deg, #C9A84C, #D4B86A)' }} />
             <span style={{ color: '#C9A84C', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
-              News & Termine
+              Hübelstübli & Events
             </span>
           </div>
           <h2 style={{
@@ -34,7 +63,7 @@ export default function Aktuelles() {
             margin: 0,
             lineHeight: 1.2,
           }}>
-            Aktuelles
+            Feiern im Hübelstübli
           </h2>
         </div>
 
@@ -42,7 +71,7 @@ export default function Aktuelles() {
           {/* News Articles */}
           <div style={{ gridColumn: 'span 2' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
-              {newsItems.map((item, i) => (
+              {hubelstuebliNews.map((item, i) => (
                 <article key={item.id} className={`fade-in-up stagger-${i + 1}`} style={{
                   backgroundColor: 'rgba(255,255,255,0.04)',
                   border: '1px solid rgba(255,255,255,0.08)',
@@ -57,13 +86,13 @@ export default function Aktuelles() {
                   {/* Image */}
                   <div style={{
                     height: '180px',
-                    background: `linear-gradient(135deg, ${categoryColor[item.category] || '#2D4A3E'}, rgba(61,107,89,0.6))`,
+                    backgroundImage: `linear-gradient(135deg, rgba(26,46,38,0.45), rgba(26,46,38,0.65)), url(${item.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     position: 'relative',
                   }}>
-                    <div style={{ opacity: 0.2, fontSize: '4rem' }}>
-                      {item.category === 'Veranstaltung' ? '🎪' : item.category === 'Züchtung' ? '🐄' : '🌿'}
-                    </div>
+                    <div style={{ opacity: 0.35, fontSize: '3.2rem' }}>🍽️</div>
                     <div style={{
                       position: 'absolute', top: '1rem', left: '1rem',
                       backgroundColor: categoryColor[item.category] || '#2D4A3E',

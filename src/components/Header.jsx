@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import henryLogo from '../assets/img/henrylogo.svg'
 
 const navLinks = [
   { href: '#home', label: 'Home' },
-  { href: '#verband', label: 'Verband' },
-  { href: '#zucht', label: 'Zucht' },
-  { href: '#marktplatz', label: 'Marktplatz' },
+  { href: '#verband', label: 'Unser Betrieb' },
+  { href: '#hofladen', label: 'Hofladen' },
   { href: '#aktuelles', label: 'Aktuelles' },
-  { href: '#zuechter', label: 'Züchter' },
-  { href: '#kontakt', label: 'Kontakt' },
+  { href: '#zuechter', label: 'Auszeichnungen' },
 ]
 
 export default function Header() {
@@ -66,25 +65,20 @@ export default function Header() {
             style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}
             onClick={() => handleNav('#home')}
           >
-            <div style={{
-              width: '44px',
-              height: '44px',
-              background: 'linear-gradient(135deg, #C9A84C, #B8860B)',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '1.4rem',
-              flexShrink: 0,
-            }}>
-              🐄
-            </div>
+            <img
+              src={henryLogo}
+              alt="Henrys Farm"
+              style={{
+                width: '44px',
+                height: '44px',
+                objectFit: 'contain',
+                flexShrink: 0,
+                filter: 'brightness(0) invert(1)',
+              }}
+            />
             <div>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.15rem', fontWeight: 700, color: '#F5F0E8', letterSpacing: '0.02em', lineHeight: 1.2 }}>
-                Galloway
-              </div>
-              <div style={{ fontSize: '0.62rem', color: '#C9A84C', letterSpacing: '0.18em', textTransform: 'uppercase', fontWeight: 600 }}>
-                Schweiz
+                Henrys Farm
               </div>
             </div>
           </a>
@@ -114,29 +108,6 @@ export default function Header() {
               </a>
             ))}
           </nav>
-
-          {/* CTA */}
-          <a
-            href="#kontakt"
-            onClick={() => handleNav('#kontakt')}
-            className="hidden-mobile"
-            style={{
-              textDecoration: 'none',
-              padding: '0.55rem 1.25rem',
-              background: 'linear-gradient(135deg, #C9A84C, #B8860B)',
-              color: '#1a2e26',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              borderRadius: '2px',
-              transition: 'opacity 0.2s',
-            }}
-            onMouseEnter={(e) => e.target.style.opacity = '0.85'}
-            onMouseLeave={(e) => e.target.style.opacity = '1'}
-          >
-            Mitglied werden
-          </a>
 
           {/* Hamburger */}
           <button
@@ -186,26 +157,6 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#kontakt"
-            onClick={() => handleNav('#kontakt')}
-            style={{
-              display: 'block',
-              textDecoration: 'none',
-              marginTop: '1rem',
-              padding: '0.75rem 1.5rem',
-              textAlign: 'center',
-              background: 'linear-gradient(135deg, #C9A84C, #B8860B)',
-              color: '#1a2e26',
-              fontWeight: 700,
-              fontSize: '0.85rem',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              borderRadius: '2px',
-            }}
-          >
-            Mitglied werden
-          </a>
         </nav>
       </div>
 

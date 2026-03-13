@@ -1,4 +1,5 @@
 import { ChevronDown, Leaf, Shield, Award } from 'lucide-react'
+import alpImage from '../assets/img/alp.jpg'
 
 const missions = [
   { icon: Leaf, title: 'Natürliche Haltung', text: 'Ganzjährige Weidehaltung in der Schweizer Hügellandschaft – artgerecht und nachhaltig.' },
@@ -13,37 +14,23 @@ export default function Hero() {
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'linear-gradient(135deg, #1a2e26 0%, #2D4A3E 40%, #3D6B59 100%)',
+        backgroundImage: `url(${alpImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         zIndex: 0,
       }}>
         {/* Decorative pattern overlay */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `radial-gradient(circle at 25% 60%, rgba(201,168,76,0.08) 0%, transparent 60%), radial-gradient(circle at 75% 30%, rgba(61,107,89,0.3) 0%, transparent 60%)`,
+          backgroundImage: `radial-gradient(circle at 25% 60%, rgba(201,168,76,0.12) 0%, transparent 60%), radial-gradient(circle at 75% 30%, rgba(61,107,89,0.35) 0%, transparent 60%)`,
           zIndex: 1,
         }} />
-        {/* Image placeholder - shown as a styled placeholder */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 0,
-        }}>
-          <div style={{
-            textAlign: 'center',
-            opacity: 0.06,
-          }}>
-            <div style={{ fontSize: '18rem', lineHeight: 1 }}>🐄</div>
-          </div>
-        </div>
         {/* Top gradient (for nav readability) */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, rgba(26,46,38,0.7) 0%, transparent 30%, rgba(26,46,38,0.4) 70%, rgba(26,46,38,0.85) 100%)',
+          background: 'linear-gradient(180deg, rgba(26,46,38,0.82) 0%, rgba(26,46,38,0.52) 35%, rgba(26,46,38,0.58) 70%, rgba(26,46,38,0.9) 100%)',
           zIndex: 2,
         }} />
       </div>
@@ -59,7 +46,15 @@ export default function Hero() {
         paddingBottom: '80px',
         width: '100%',
       }}>
-        <div style={{ maxWidth: '720px' }}>
+        <div style={{
+          maxWidth: '760px',
+          backgroundColor: 'rgba(26,46,38,0.58)',
+          border: '1px solid rgba(201,168,76,0.22)',
+          borderRadius: '6px',
+          padding: '1.35rem 1.4rem 1.6rem',
+          boxShadow: '0 10px 35px rgba(0,0,0,0.28)',
+          backdropFilter: 'blur(1px)',
+        }}>
           {/* Tag line */}
           <div className="fade-in stagger-1" style={{
             display: 'inline-flex',
@@ -73,7 +68,7 @@ export default function Hero() {
           }}>
             <span style={{ width: '6px', height: '6px', background: '#C9A84C', borderRadius: '50%', display: 'inline-block' }} />
             <span style={{ color: '#C9A84C', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-              Schweizer Galloway-Verband
+              Schweizer Landwirtschaft
             </span>
           </div>
 
@@ -87,14 +82,14 @@ export default function Hero() {
             margin: '0 0 1.5rem',
             letterSpacing: '-0.01em',
           }}>
-            Tradition trifft{' '}
+            Willkommen bei{' '}
             <span style={{
               fontStyle: 'italic',
               background: 'linear-gradient(135deg, #C9A84C, #D4B86A)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}>
-              Bio-Qualität
+              Henrys Farm
             </span>
           </h1>
 
@@ -104,17 +99,15 @@ export default function Hero() {
             fontSize: 'clamp(1rem, 2vw, 1.2rem)',
             lineHeight: 1.75,
             margin: '0 0 2.5rem',
-            maxWidth: '560px',
+            maxWidth: '660px',
           }}>
-            Galloway Schweiz – der Verband für Züchterinnen und Züchter der robusten,
-            genügsamen Galloway-Rasse. Seit Jahrzehnten setzen wir uns für artgerechte
-            Haltung, nachhaltige Landwirtschaft und transparente Zucht ein.
+            Auf unserem Hof in Eiken und Münchwilen AG, leben Galloway Rinder, Damhirsche und Weidelämmer. Die Rinder verbringen den Sommer auf der Alp in der welschen Schweiz. Unsere Tiere sind nie angebunden und können sich immer frei bewegen. Sie leben alle in einer Herde und die Jungtiere werden von den Muttertieren grossgezogen. Gras, Heu, Stroh und Silage aus eigener Produktion werden gefüttert, ohne dass Kraftfutter verwendet wird. Unsere Produkte verkaufen wir im Hübelstübli direkt ab Hof. 
           </p>
 
           {/* CTA Buttons */}
           <div className="fade-in-up stagger-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a
-              href="#verband"
+              href="#hofladen"
               style={{
                 textDecoration: 'none',
                 padding: '0.85rem 2rem',
@@ -131,10 +124,10 @@ export default function Hero() {
               onMouseEnter={(e) => { e.target.style.transform = 'translateY(-2px)'; e.target.style.boxShadow = '0 8px 30px rgba(201,168,76,0.4)' }}
               onMouseLeave={(e) => { e.target.style.transform = 'translateY(0)'; e.target.style.boxShadow = '0 4px 20px rgba(201,168,76,0.3)' }}
             >
-              Über den Verband
+              Produkte
             </a>
             <a
-              href="#zuechter"
+              href="#downloads"
               style={{
                 textDecoration: 'none',
                 padding: '0.85rem 2rem',
@@ -151,7 +144,7 @@ export default function Hero() {
               onMouseEnter={(e) => { e.target.style.borderColor = '#C9A84C'; e.target.style.background = 'rgba(201,168,76,0.08)' }}
               onMouseLeave={(e) => { e.target.style.borderColor = 'rgba(245,240,232,0.45)'; e.target.style.background = 'transparent' }}
             >
-              Züchter finden
+              Bestellformular
             </a>
           </div>
         </div>

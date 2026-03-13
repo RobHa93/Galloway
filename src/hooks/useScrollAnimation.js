@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react'
 
 export function useScrollAnimation() {
   useEffect(() => {
-    const elements = document.querySelectorAll('.fade-in-up, .fade-in')
+    const selector = '.fade-in-up, .fade-in'
+    const observed = new WeakSet()
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -13,8 +14,35 @@ export function useScrollAnimation() {
       },
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     )
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+
+    const observeIfNeeded = (el) => {
+      if (!(el instanceof Element) || observed.has(el)) return
+      observed.add(el)
+      observer.observe(el)
+    }
+
+    document.querySelectorAll(selector).forEach(observeIfNeeded)
+
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (!(node instanceof Element)) return
+
+          if (node.matches(selector)) {
+            observeIfNeeded(node)
+          }
+
+          node.querySelectorAll(selector).forEach(observeIfNeeded)
+        })
+      })
+    })
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true })
+
+    return () => {
+      mutationObserver.disconnect()
+      observer.disconnect()
+    }
   }, [])
 }
 

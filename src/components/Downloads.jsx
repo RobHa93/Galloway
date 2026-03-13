@@ -1,5 +1,4 @@
 import { Download, FileText } from 'lucide-react'
-import { downloads } from '../data/content'
 
 export default function Downloads() {
   return (
@@ -10,7 +9,7 @@ export default function Downloads() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
             <div className="gold-divider" />
             <span style={{ color: '#B8860B', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
-              Dokumente
+              Hofladen
             </span>
           </div>
           <h2 style={{
@@ -21,78 +20,78 @@ export default function Downloads() {
             margin: 0,
             lineHeight: 1.2,
           }}>
-            Downloads & Reglemente
+            Bestellformular
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
-          {downloads.map((doc, i) => (
-            <div key={doc.id} className={`fade-in-up stagger-${(i % 4) + 1}`} style={{
-              backgroundColor: '#fff',
-              border: '1px solid #DDD5C5',
+        <div className="fade-in-up" style={{ maxWidth: '760px' }}>
+          <div style={{
+            backgroundColor: '#fff',
+            border: '1px solid #DDD5C5',
+            borderRadius: '4px',
+            padding: '1.75rem',
+            display: 'flex',
+            gap: '1.1rem',
+            alignItems: 'flex-start',
+          }}>
+            <div style={{
+              width: '56px',
+              height: '56px',
+              backgroundColor: 'rgba(45,74,62,0.08)',
               borderRadius: '4px',
-              padding: '1.5rem',
               display: 'flex',
-              alignItems: 'flex-start',
-              gap: '1rem',
-              transition: 'box-shadow 0.2s, transform 0.2s',
-              cursor: 'pointer',
-            }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 6px 24px rgba(45,74,62,0.1)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
-              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'translateY(0)' }}
-            >
-              {/* Icon */}
-              <div style={{
-                width: '48px',
-                height: '48px',
-                backgroundColor: 'rgba(45,74,62,0.08)',
-                borderRadius: '4px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '1.5rem',
-                flexShrink: 0,
-              }}>
-                {doc.icon}
-              </div>
-              {/* Info */}
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontWeight: 700, color: '#1a2e26', fontSize: '0.9rem', marginBottom: '0.2rem', lineHeight: 1.3 }}>
-                  {doc.title}
-                </div>
-                <div style={{ fontSize: '0.72rem', color: '#64748B', marginBottom: '0.6rem' }}>{doc.subtitle}</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <span style={{
-                    backgroundColor: '#F5F0E8',
-                    color: '#475569',
-                    fontSize: '0.65rem',
-                    fontWeight: 600,
-                    padding: '0.15rem 0.5rem',
-                    borderRadius: '2px',
-                    letterSpacing: '0.08em',
-                  }}>
-                    {doc.type}
-                  </span>
-                  <span style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{doc.size}</span>
-                </div>
-              </div>
-              {/* Download icon */}
-              <div style={{
-                width: '36px',
-                height: '36px',
-                border: '1.5px solid #EAE3D6',
-                borderRadius: '3px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-                color: '#2D4A3E',
-                transition: 'background 0.2s, border-color 0.2s',
-              }}>
-                <Download size={15} />
-              </div>
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0,
+            }}>
+              <FileText size={24} color="#2D4A3E" />
             </div>
-          ))}
+
+            <div style={{ flex: 1 }}>
+              <h3 style={{ margin: '0 0 0.35rem', color: '#1a2e26', fontSize: '1.05rem', fontFamily: "'Playfair Display', serif" }}>
+                Fleisch-Bestellformular
+              </h3>
+              <p style={{ margin: '0 0 0.85rem', color: '#64748B', fontSize: '0.85rem', lineHeight: 1.65 }}>
+                Nutzen Sie dieses Formular fuer die Bestellung unserer Hofladenprodukte
+                (Rind-, Hirsch- und Lammfleisch).
+              </p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <span style={{
+                  backgroundColor: '#F5F0E8',
+                  color: '#475569',
+                  fontSize: '0.65rem',
+                  fontWeight: 600,
+                  padding: '0.15rem 0.5rem',
+                  borderRadius: '2px',
+                  letterSpacing: '0.08em',
+                }}>
+                  PDF
+                </span>
+              </div>
+
+              <a
+                href="https://www.galloway-schweiz.ch/assets/Files/fleisch_bestellung.pdf"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  textDecoration: 'none',
+                  background: 'linear-gradient(135deg, #2D4A3E, #1a2e26)',
+                  color: '#F5F0E8',
+                  padding: '0.65rem 1rem',
+                  fontSize: '0.78rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  borderRadius: '3px',
+                }}
+              >
+                Formular herunterladen <Download size={14} />
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Member note */}
@@ -108,9 +107,11 @@ export default function Downloads() {
         }}>
           <FileText size={16} color="#2D4A3E" style={{ flexShrink: 0 }} />
           <p style={{ margin: 0, fontSize: '0.82rem', color: '#475569', lineHeight: 1.6 }}>
-            Alle Dokumente stehen Mitgliedern kostenlos zur Verfügung.{' '}
+            Bestellungen koennen auch telefonisch oder per E-Mail aufgegeben werden.
+            Die Kontaktdaten finden Sie im Footer unter Kontakt & Anfahrt.
+            {' '}
             <a href="#kontakt" style={{ color: '#B8860B', fontWeight: 600, textDecoration: 'none' }}>
-              Mitglied werden →
+              Zu den Kontaktdaten →
             </a>
           </p>
         </div>
