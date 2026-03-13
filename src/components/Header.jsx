@@ -6,8 +6,9 @@ const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#verband', label: 'Unser Betrieb' },
   { href: '#hofladen', label: 'Hofladen' },
+    { href: '#zuechter', label: 'Auszeichnungen' },
   { href: '#aktuelles', label: 'Aktuelles' },
-  { href: '#zuechter', label: 'Auszeichnungen' },
+
 ]
 
 export default function Header() {

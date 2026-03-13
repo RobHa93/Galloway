@@ -18,8 +18,9 @@ function App() {
         <Hero />
         <Betrieb />
         <Hofladen />
+               <Auszeichnungen />
         <Aktuelles />
-        <Auszeichnungen />
+ 
         <Downloads />
       </main>
       <Footer />
