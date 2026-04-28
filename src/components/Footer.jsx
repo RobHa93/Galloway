@@ -8,16 +8,21 @@ const footerLinks = {
     { label: 'Auszeichnungen', href: '#zuechter' },
   ],
   Produkte: [
-    { label: 'Hofladenprodukte', href: 'https://www.galloway-schweiz.ch/huebelstuebli/' },
-    { label: 'Rindfleisch', href: 'https://www.galloway-schweiz.ch/huebelstuebli/galloway-rindfleisch/' },
-    { label: 'Hirschfleisch', href: 'https://www.galloway-schweiz.ch/huebelstuebli/damhirschfleisch/' },
-    { label: 'Lammfleisch', href: 'https://www.galloway-schweiz.ch/huebelstuebli/weidelamm/' },
+   
+    { label: 'Rindfleisch', href: '#hofladen' },
+    { label: 'Hirschfleisch', href: '#hofladen' },
+    { label: 'Lammfleisch', href: '#hofladen' },
+      { label: 'Wildfleisch', href: '#hofladen' },
+    { label: 'Forellen', href: '#hofladen' },
+     { label: 'Eier', href: '#hofladen' },
+      { label: 'Brot', href: '#hofladen' },
+       { label: 'Süssmost', href: '#hofladen' },
   ],
   Mehr: [
-    { label: 'Wildfleisch', href: 'https://www.galloway-schweiz.ch/huebelstuebli/rehwild-and-wildschwein/' },
-    { label: 'Forellen', href: 'https://www.galloway-schweiz.ch/huebelstuebli/forellen/' },
+     { label: 'Brennholz', href: '#hofladen' },
+    { label: 'Geschenke', href: '#hofladen' },
     { label: 'Partner', href: 'https://www.galloway-schweiz.ch/partner/' },
-    { label: 'Kontakt', href: '#kontakt' },
+  
   ],
 }
 
@@ -45,9 +50,7 @@ export default function Footer() {
               </div>
             </div>
             <p style={{ fontSize: '0.82rem', lineHeight: 1.8, marginBottom: '1.5rem', color: 'rgba(245,240,232,0.6)' }}>
-              Auf unserem Hof in Eiken und Muenchwilen AG leben Galloway Rinder,
-              Damhirsche und Weidelaemmer. Unsere Produkte verkaufen wir direkt ab Hof
-              im Huebelstuebli.
+             
             </p>
             {/* Social */}
             <div style={{ display: 'flex', gap: '0.75rem' }}>
@@ -183,8 +186,8 @@ export default function Footer() {
           </div>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
             {[
-              { label: 'Impressum', href: 'https://www.galloway-schweiz.ch/impressum/' },
-              { label: 'Datenschutz', href: 'https://www.galloway-schweiz.ch/datenschutzerklaerung/' },
+              { label: 'Impressum', href: '#' },
+              { label: 'Datenschutz', href: '#' },
             ].map((link) => (
               <a key={link.label} href={link.href} target="_blank" rel="noreferrer" style={{ fontSize: '0.72rem', color: 'rgba(245,240,232,0.35)', textDecoration: 'none', transition: 'color 0.15s' }}
                 onMouseEnter={(e) => e.target.style.color = 'rgba(245,240,232,0.65)'}

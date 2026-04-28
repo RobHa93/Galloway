@@ -86,13 +86,13 @@ export default function Aktuelles() {
                   {/* Image */}
                   <div style={{
                     height: '180px',
-                    backgroundImage: `linear-gradient(135deg, rgba(26,46,38,0.45), rgba(26,46,38,0.65)), url(${item.image})`,
+                    backgroundImage: ` url(${item.image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     position: 'relative',
                   }}>
-                    <div style={{ opacity: 0.35, fontSize: '3.2rem' }}>🍽️</div>
+              
                     <div style={{
                       position: 'absolute', top: '1rem', left: '1rem',
                       backgroundColor: categoryColor[item.category] || '#2D4A3E',
@@ -131,7 +131,7 @@ export default function Aktuelles() {
                       color: '#C9A84C', cursor: 'pointer', fontSize: '0.78rem', fontWeight: 700,
                       letterSpacing: '0.06em', fontFamily: "'Montserrat', sans-serif",
                     }}>
-                      Weiterlesen <ArrowRight size={13} />
+                      Kontaktieren Sie uns <ArrowRight size={13} />
                     </button>
                   </div>
                 </article>

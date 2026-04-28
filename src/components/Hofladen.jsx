@@ -1,11 +1,21 @@
 import { useState } from 'react'
+import rindfleischImg from '../assets/img/rindfleisch.jpg'
+import hirschfleischImg from '../assets/img/hirschfleisch.jpg'
+import lammfleischImg from '../assets/img/lammfleisch.jpg'
+import wildfleischImg from '../assets/img/wildfleisch.jpg'
+import forelleImg from '../assets/img/forelle.jpg'
+import eierImg from '../assets/img/eier.jpg'
+import brotImg from '../assets/img/brot.jpg'
+import suessmostImg from '../assets/img/suessmost.jpg'
+import brennholzImg from '../assets/img/brennholz.jpg'
+import geschenkeImg from '../assets/img/geschenke.jpg'
 
 const products = [
   {
     id: 'rindfleisch',
     tab: 'Rindfleisch',
     title: 'Galloway Rindfleisch',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Einkaufen-Degustieren/IMG_2556__FocusFillWyIwLjAwIiwiMC4wMCIsMTAyNCw1MTJd.jpg',
+    image: rindfleischImg,
     description:
       'Unser Rindfleisch stammt aus Freilandhaltung mit Futter aus eigener Produktion: Gras, Heu und Silage. Ohne Kraftfutter entsteht langsam gewachsenes, feinfasriges und zart marmoriertes Fleisch.',
     facts: [
@@ -20,7 +30,7 @@ const products = [
     id: 'hirschfleisch',
     tab: 'Hirschfleisch',
     title: 'Damhirschfleisch',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Startseite/IMG_0797__FocusFillWyIwLjAwIiwiMC4wMCIsMTM2Niw2ODNd.jpg',
+    image: hirschfleischImg,
     description:
       'Damhirschfleisch ist rotbraun, fein in der Struktur sowie gleichzeitig mager und saftig. Es eignet sich fuer vielseitige Gerichte mit charaktervollem Geschmack.',
     facts: [
@@ -35,7 +45,7 @@ const products = [
     id: 'lammfleisch',
     tab: 'Lammfleisch',
     title: 'Weidelamm',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Einkaufen-Degustieren/IMG_2586__FocusFillWyIwLjAwIiwiMC4wMCIsMTAyNCw1MTJd.jpg',
+    image: lammfleischImg,
     description:
       'Unsere Laemmer verbringen etwa 6 bis 8 Monate mit den Muettern auf den Weiden. Dadurch entsteht feines Weidelammfleisch mit natuerlichem Geschmack.',
     facts: [
@@ -50,7 +60,7 @@ const products = [
     id: 'wildfleisch',
     tab: 'Wildfleisch',
     title: 'Rehwild & Wildschwein',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Reh-II__FocusFillWyIwLjAwIiwiMC4wMCIsMTM2Niw2ODNd.jpg',
+    image: wildfleischImg,
     description:
       'In der Wildsaison bieten wir Rehwild- und Wildschweinfleisch an. Das Angebot erfolgt auf Anfrage und nach aktueller Verfuegbarkeit.',
     facts: [
@@ -65,7 +75,7 @@ const products = [
     id: 'forellen',
     tab: 'Forellen',
     title: 'Quellwasserforellen',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Einkaufen-Degustieren/1b6341be-5d57-460e-a484-99019258f867__FocusFillWyIwLjAwIiwiMC4wMCIsMTM2Niw2ODNd.jpg',
+    image: forelleImg,
     description:
       'Unsere Forellen verkaufen wir jeweils als ganze oder filetierte Forelle direkt ab Weiher in Kaisten. Die Ausgabe findet traditionell rund um Gruendonnerstag statt.',
     facts: [
@@ -80,7 +90,7 @@ const products = [
     id: 'eier',
     tab: 'Eier',
     title: 'Hofeier',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Eier__FocusFillWyIwLjAwIiwiMC4wMCIsMTM2Niw2ODNd.jpg',
+    image: eierImg,
     description:
       'Auf dem Hof leben eigene Huehner, deren Eier wir direkt ab Hof verkaufen. Frisch, regional und unkompliziert in der Direktvermarktung.',
     facts: [
@@ -95,7 +105,7 @@ const products = [
     id: 'brot',
     tab: 'Brot',
     title: 'Frisches Hofbrot',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Einkaufen-Degustieren/image1__FocusFillWyIwLjAwIiwiMC4wMCIsMTAyNCw1MTJd.jpeg',
+    image: brotImg,
     description:
       'Aus Getreide von unseren Feldern wird in der Region frisches Brot gebacken. Das Brot bieten wir auf Vorbestellung direkt in der Hofvermarktung an.',
     facts: [
@@ -110,7 +120,7 @@ const products = [
     id: 'suessmost',
     tab: 'Suessmost',
     title: 'Suessmost',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Einkaufen-Degustieren/Dear-Kathie-Fotografie-Hochzeit-Rheinfelden-Loerrach-720__FocusFillWyIwLjAwIiwiMC4wMCIsMTM2Niw2ODNd.jpg',
+    image: suessmostImg,
     description:
       'In der Mostsaison werden die Aepfel in Kaisten zu frischem und pasteurisiertem Suessmost gepresst. Verkauft wird der Most in praktischen 10-Liter-Packungen.',
     facts: [
@@ -125,7 +135,7 @@ const products = [
     id: 'brennholz',
     tab: 'Brennholz',
     title: 'Brennholz',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Brennholz__FocusFillWyIwLjAwIiwiMC4wMCIsMTM2Niw2ODNd.jpg',
+    image: brennholzImg,
     description:
       'Unser Kaminholz stammt aus der Umgebung, ist gespalten, brennbereit und mindestens zwei Jahre getrocknet. Lieferung oder Abholung sind je nach Wunsch moeglich.',
     facts: [
@@ -140,7 +150,7 @@ const products = [
     id: 'geschenke',
     tab: 'Geschenke',
     title: 'Geschenke & Gutscheine',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Geschenke-und-Gutscheine/IMG_7002__FocusFillWyItMC4zMyIsIi0wLjI1IiwxMzY2LDY4M10.jpg',
+    image: geschenkeImg,
     description:
       'Wir stellen Geschenkkisten nach Wunsch mit Wurstwaren, Fleischspezialitaeten und weiteren Hofprodukten zusammen. Gutscheine mit frei waehlbarem Betrag sind ebenfalls erhaeltlich.',
     facts: [

@@ -107,12 +107,9 @@ export default function Downloads() {
         }}>
           <FileText size={16} color="#2D4A3E" style={{ flexShrink: 0 }} />
           <p style={{ margin: 0, fontSize: '0.82rem', color: '#475569', lineHeight: 1.6 }}>
-            Bestellungen koennen auch telefonisch oder per E-Mail aufgegeben werden.
+            Bestellungen können auch telefonisch oder per E-Mail aufgegeben werden.
             Die Kontaktdaten finden Sie im Footer unter Kontakt & Anfahrt.
-            {' '}
-            <a href="#kontakt" style={{ color: '#B8860B', fontWeight: 600, textDecoration: 'none' }}>
-              Zu den Kontaktdaten →
-            </a>
+          
           </p>
         </div>
       </div>

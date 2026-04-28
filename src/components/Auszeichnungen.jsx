@@ -3,29 +3,29 @@ import { Award, Users, HeartHandshake, Quote, ExternalLink } from 'lucide-react'
 const memberships = [
   {
     name: 'Swiss Galloway Society',
-    text: 'Mitgliedschaft fuer den fachlichen Austausch rund um Galloway-Zucht, Tierhaltung und Direktvermarktung in der Schweiz.',
+    text: 'Mitgliedschaft für den fachlichen Austausch rund um Galloway-Zucht, Tierhaltung und Direktvermarktung in der Schweiz.',
   },
   {
     name: 'Damhirsch aus schweizer Gehegen',
-    text: 'Vernetzung mit Kolleginnen und Kollegen fuer Wissenstransfer in der Damhirschhaltung und Wildvermarktung.',
+    text: 'Vernetzung mit Kolleginnen und Kollegen für Wissenstransfer in der Damhirschhaltung und Wildvermarktung.',
   },
 ]
 
 const values = [
   {
     icon: HeartHandshake,
-    title: 'Gaeste im Mittelpunkt',
-    text: 'Wichtiger als jede Auszeichnung ist fuer uns, dass Gaeste, Kundschaft und Partner sich bei uns wohl fuehlen.',
+    title: 'Gäste im Mittelpunkt',
+    text: 'Wichtiger als jede Auszeichnung ist für uns, dass Gäste, Kundschaft und Partner sich bei uns wohl fühlen.',
   },
   {
     icon: Award,
     title: 'Anerkennung als Motivation',
-    text: 'Wir freuen uns ueber jede Auszeichnung und verstehen sie als Bestaetigung fuer konsequente Qualitaetsarbeit.',
+    text: 'Wir freuen uns über jede Auszeichnung und verstehen sie als Bestätigung für konsequente Qualitätsarbeit.',
   },
   {
     icon: Users,
     title: 'Austausch & Netzwerk',
-    text: 'Aktive Mitgliedschaften helfen uns, fachlich am Ball zu bleiben und Entwicklungen fruehzeitig aufzunehmen.',
+    text: 'Aktive Mitgliedschaften helfen uns, fachlich am Ball zu bleiben und Entwicklungen frühzeitig aufzunehmen.',
   },
 ]
 
@@ -51,9 +51,9 @@ export default function Auszeichnungen() {
             Auszeichnungen & Mitgliedschaften
           </h2>
           <p style={{ color: '#475569', fontSize: '1rem', maxWidth: '760px', lineHeight: 1.8, margin: 0 }}>
-            Wir freuen uns ueber jede Auszeichnung. Entscheidend ist fuer uns aber vor allem,
-            dass unsere Gaeste, Kunden und Partner gerne auf unseren Hof kommen,
-            um zu geniessen oder unsere Produkte direkt zu kaufen.
+            Wir freuen uns über jede Auszeichnung. Entscheidend ist für uns aber vor allem,
+            dass unsere äste, Kunden und Partner gerne auf unseren Hof kommen,
+            um zu genießen oder unsere Produkte direkt zu kaufen.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export default function Auszeichnungen() {
                 padding: '0.3rem 0.7rem',
                 borderRadius: '2px',
               }}>
-                Hof & Qualitaet
+                Hof & Qualität
               </span>
             </div>
             <div style={{ padding: '1.5rem' }}>
@@ -117,7 +117,7 @@ export default function Auszeichnungen() {
               </h3>
             </div>
             <p style={{ color: '#64748B', fontSize: '0.86rem', lineHeight: 1.7, marginTop: 0, marginBottom: '1.2rem' }}>
-              Fuer einen regen Austausch mit Kolleginnen und Kollegen engagieren wir uns aktiv in folgenden Verbaenden:
+              Für einen regen Austausch mit Kolleginnen und Kollegen engagieren wir uns aktiv in folgenden Verbänden:
             </p>
             <div style={{ display: 'grid', gap: '0.9rem' }}>
               {memberships.map((item) => (
@@ -151,7 +151,7 @@ export default function Auszeichnungen() {
                 textTransform: 'uppercase',
               }}
             >
-              Quelle ansehen <ExternalLink size={13} />
+        
             </a>
           </article>
         </div>

@@ -53,8 +53,8 @@ export default function Header() {
         right: 0,
         zIndex: 50,
         transition: 'all 0.3s ease',
-        backgroundColor: scrolled ? 'rgba(29, 51, 41, 0.97)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        backgroundColor: scrolled ? 'rgba(29, 51, 41, 0.97)' : 'rgba(0, 0, 0, 0.28)',
+        backdropFilter: scrolled ? 'blur(12px)' : 'blur(2px)',
         boxShadow: scrolled ? '0 2px 24px rgba(0,0,0,0.18)' : 'none',
       }}
     >

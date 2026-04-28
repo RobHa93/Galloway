@@ -30,7 +30,6 @@ export default function Hero() {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, rgba(26,46,38,0.82) 0%, rgba(26,46,38,0.52) 35%, rgba(26,46,38,0.58) 70%, rgba(26,46,38,0.9) 100%)',
           zIndex: 2,
         }} />
       </div>
