@@ -18,10 +18,10 @@ function App() {
         <Hero />
         <Betrieb />
         <Hofladen />
-               <Auszeichnungen />
+              <Downloads />
         <Aktuelles />
- 
-        <Downloads />
+         <Auszeichnungen />
+      
       </main>
       <Footer />
     </>

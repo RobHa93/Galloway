@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import rindfleischImg from '../assets/img/rindfleisch.jpg'
 import hirschfleischImg from '../assets/img/hirschfleisch.jpg'
 import lammfleischImg from '../assets/img/lammfleisch.jpg'
@@ -156,7 +156,7 @@ const products = [
     facts: [
       { label: 'Geschenkkorb', value: 'Individuell nach Wunsch' },
       { label: 'Inhalt', value: 'Wurstwaren und Hofspezialitaeten' },
-      { label: 'Gutscheine', value: 'Freier Betrag moeglich' },
+      { label: 'Gutscheine', value: 'Freier Betrag möglich' },
       { label: 'Versand', value: 'Auf Rechnung nach Hause' },
     ],
     link: 'https://www.galloway-schweiz.ch/huebelstuebli/geschenke-and-gutscheine/',
@@ -172,6 +172,20 @@ const shopHighlights = [
 export default function Hofladen() {
   const [selected, setSelected] = useState('rindfleisch')
   const product = products.find((item) => item.id === selected)
+
+  useEffect(() => {
+    const applyHash = () => {
+      const prefix = '#hofladen:'
+      if (!window.location.hash.startsWith(prefix)) return
+      const id = window.location.hash.slice(prefix.length)
+      if (!products.some((item) => item.id === id)) return
+      setSelected(id)
+      document.getElementById('hofladen')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    applyHash()
+    window.addEventListener('hashchange', applyHash)
+    return () => window.removeEventListener('hashchange', applyHash)
+  }, [])
 
   return (
     <section id="hofladen" style={{ backgroundColor: '#1a2e26', padding: '6rem 0' }}>

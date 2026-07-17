@@ -8,21 +8,19 @@ const footerLinks = {
     { label: 'Auszeichnungen', href: '#zuechter' },
   ],
   Produkte: [
-   
-    { label: 'Rindfleisch', href: '#hofladen' },
-    { label: 'Hirschfleisch', href: '#hofladen' },
-    { label: 'Lammfleisch', href: '#hofladen' },
-      { label: 'Wildfleisch', href: '#hofladen' },
-    { label: 'Forellen', href: '#hofladen' },
-     { label: 'Eier', href: '#hofladen' },
-      { label: 'Brot', href: '#hofladen' },
-       { label: 'Süssmost', href: '#hofladen' },
+    { label: 'Rindfleisch', href: '#hofladen:rindfleisch' },
+    { label: 'Hirschfleisch', href: '#hofladen:hirschfleisch' },
+    { label: 'Lammfleisch', href: '#hofladen:lammfleisch' },
+    { label: 'Wildfleisch', href: '#hofladen:wildfleisch' },
+    { label: 'Forellen', href: '#hofladen:forellen' },
+    { label: 'Eier', href: '#hofladen:eier' },
+    { label: 'Brot', href: '#hofladen:brot' },
+    { label: 'Süssmost', href: '#hofladen:suessmost' },
   ],
   Mehr: [
-     { label: 'Brennholz', href: '#hofladen' },
-    { label: 'Geschenke', href: '#hofladen' },
+    { label: 'Brennholz', href: '#hofladen:brennholz' },
+    { label: 'Geschenke', href: '#hofladen:geschenke' },
     { label: 'Partner', href: 'https://www.galloway-schweiz.ch/partner/' },
-  
   ],
 }
 

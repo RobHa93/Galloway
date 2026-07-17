@@ -1,5 +1,3 @@
-import { Award, Users, HeartHandshake, Quote, ExternalLink } from 'lucide-react'
-
 const memberships = [
   {
     name: 'Swiss Galloway Society',
@@ -13,17 +11,17 @@ const memberships = [
 
 const values = [
   {
-    icon: HeartHandshake,
+    num: '01',
     title: 'Gäste im Mittelpunkt',
     text: 'Wichtiger als jede Auszeichnung ist für uns, dass Gäste, Kundschaft und Partner sich bei uns wohl fühlen.',
   },
   {
-    icon: Award,
+    num: '02',
     title: 'Anerkennung als Motivation',
     text: 'Wir freuen uns über jede Auszeichnung und verstehen sie als Bestätigung für konsequente Qualitätsarbeit.',
   },
   {
-    icon: Users,
+    num: '03',
     title: 'Austausch & Netzwerk',
     text: 'Aktive Mitgliedschaften helfen uns, fachlich am Ball zu bleiben und Entwicklungen frühzeitig aufzunehmen.',
   },
@@ -52,8 +50,8 @@ export default function Auszeichnungen() {
           </h2>
           <p style={{ color: '#475569', fontSize: '1rem', maxWidth: '760px', lineHeight: 1.8, margin: 0 }}>
             Wir freuen uns über jede Auszeichnung. Entscheidend ist für uns aber vor allem,
-            dass unsere äste, Kunden und Partner gerne auf unseren Hof kommen,
-            um zu genießen oder unsere Produkte direkt zu kaufen.
+            dass unsere Gäste, Kundschaft und Partner gerne auf unseren Hof kommen,
+            um zu geniessen oder unsere Produkte direkt zu kaufen.
           </p>
         </div>
 
@@ -72,34 +70,51 @@ export default function Auszeichnungen() {
           }}>
             <div style={{
               height: '220px',
-              backgroundImage: 'linear-gradient(135deg, rgba(26,46,38,0.3), rgba(26,46,38,0.55)), url(https://www.galloway-schweiz.ch/assets/Images/Startseite/fallback__FocusFillWyIwLjAwIiwiMC4wMCIsMTAyNCw1MTJd.jpg)',
+              position: 'relative',
+              backgroundImage: 'linear-gradient(135deg, rgba(26,46,38,0.25), rgba(26,46,38,0.5)), url(https://www.galloway-schweiz.ch/assets/Images/Startseite/fallback__FocusFillWyIwLjAwIiwiMC4wMCIsMTAyNCw1MTJd.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              display: 'flex',
-              alignItems: 'flex-end',
-              padding: '1rem',
             }}>
-              <span style={{
-                backgroundColor: 'rgba(184,134,11,0.92)',
-                color: '#1a2e26',
-                fontSize: '0.68rem',
-                fontWeight: 700,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                padding: '0.3rem 0.7rem',
-                borderRadius: '2px',
+              {/* Seal badge */}
+              <div style={{
+                position: 'absolute',
+                bottom: '1rem',
+                left: '1rem',
+                width: '78px',
+                height: '78px',
+                borderRadius: '50%',
+                backgroundColor: '#F5F0E8',
+                border: '1px dashed #B8860B',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                transform: 'rotate(-8deg)',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.25)',
               }}>
-                Hof & Qualität
-              </span>
+                <span style={{
+                  fontFamily: "'Playfair Display', serif",
+                  color: '#1a2e26',
+                  fontSize: '0.62rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.05em',
+                  lineHeight: 1.3,
+                  textTransform: 'uppercase',
+                }}>
+                  Hof &<br />Qualität
+                </span>
+              </div>
             </div>
             <div style={{ padding: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                <Quote size={16} color="#B8860B" />
-                <div style={{ color: '#1a2e26', fontWeight: 700, fontSize: '0.95rem' }}>Unser Leitgedanke</div>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', marginBottom: '0.5rem' }}>
+                <span style={{ fontFamily: "'Playfair Display', serif", color: '#B8860B', fontSize: '2.2rem', lineHeight: 1, fontWeight: 700 }}>
+                  &ldquo;
+                </span>
+                <div style={{ color: '#1a2e26', fontWeight: 700, fontSize: '0.95rem', paddingTop: '0.4rem' }}>Unser Leitgedanke</div>
               </div>
-              <p style={{ color: '#475569', fontSize: '0.9rem', lineHeight: 1.75, margin: 0 }}>
+              <p style={{ color: '#475569', fontSize: '0.9rem', lineHeight: 1.75, margin: 0, fontStyle: 'italic' }}>
                 Anerkennung freut uns, doch im Zentrum steht immer die Zufriedenheit unserer
-                Besucherinnen und Besucher sowie die Qualitaet unserer Hofprodukte.
+                Besucherinnen und Besucher sowie die Qualität unserer Hofprodukte.
               </p>
             </div>
           </article>
@@ -110,8 +125,8 @@ export default function Auszeichnungen() {
             borderRadius: '4px',
             padding: '1.5rem',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-              <Users size={18} color="#B8860B" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.1rem' }}>
+              <div style={{ width: '32px', height: '2px', background: 'linear-gradient(90deg, #C9A84C, #D4B86A)' }} />
               <h3 style={{ fontFamily: "'Playfair Display', serif", color: '#1a2e26', fontSize: '1.25rem', margin: 0 }}>
                 Mitgliedschaften
               </h3>
@@ -119,74 +134,44 @@ export default function Auszeichnungen() {
             <p style={{ color: '#64748B', fontSize: '0.86rem', lineHeight: 1.7, marginTop: 0, marginBottom: '1.2rem' }}>
               Für einen regen Austausch mit Kolleginnen und Kollegen engagieren wir uns aktiv in folgenden Verbänden:
             </p>
-            <div style={{ display: 'grid', gap: '0.9rem' }}>
-              {memberships.map((item) => (
+            <div>
+              {memberships.map((item, i) => (
                 <div key={item.name} style={{
-                  border: '1px solid #EAE3D6',
-                  backgroundColor: '#FFFDF8',
-                  borderRadius: '3px',
-                  padding: '0.95rem',
+                  paddingTop: i > 0 ? '0.9rem' : 0,
+                  paddingBottom: '0.9rem',
+                  marginTop: i > 0 ? '0.9rem' : 0,
+                  borderTop: i > 0 ? '1px dashed #EAE3D6' : 'none',
                 }}>
-                  <div style={{ fontWeight: 700, color: '#1a2e26', fontSize: '0.88rem', marginBottom: '0.3rem' }}>
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700, color: '#1a2e26', fontSize: '0.95rem', marginBottom: '0.3rem', textDecoration: 'underline', textDecorationColor: '#C9A84C', textUnderlineOffset: '3px' }}>
                     {item.name}
                   </div>
                   <div style={{ color: '#64748B', fontSize: '0.8rem', lineHeight: 1.65 }}>{item.text}</div>
                 </div>
               ))}
             </div>
-            <a
-              href="https://www.galloway-schweiz.ch/auszeichnungen-and-mitgliedschaften/"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                marginTop: '1.1rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                textDecoration: 'none',
-                color: '#B8860B',
-                fontWeight: 700,
-                fontSize: '0.78rem',
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase',
-              }}
-            >
-        
-            </a>
           </article>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
-          {values.map((item, i) => {
-            const Icon = item.icon
-            return (
-              <div
-                key={item.title}
-                className={`fade-in-up stagger-${(i % 4) + 1}`}
-                style={{
-                  backgroundColor: '#fff',
-                  border: '1px solid #EAE3D6',
-                  borderRadius: '4px',
-                  padding: '1.2rem',
-                  transition: 'box-shadow 0.2s, transform 0.2s',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(45,74,62,0.08)'
-                  e.currentTarget.style.transform = 'translateY(-2px)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = 'none'
-                  e.currentTarget.style.transform = 'translateY(0)'
-                }}
-              >
-                <div style={{ width: '38px', height: '38px', borderRadius: '50%', backgroundColor: '#F5F0E8', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.65rem' }}>
-                  <Icon size={18} color="#B8860B" />
-                </div>
-                <div style={{ color: '#1a2e26', fontWeight: 700, fontSize: '0.9rem', marginBottom: '0.35rem' }}>{item.title}</div>
-                <div style={{ color: '#64748B', fontSize: '0.8rem', lineHeight: 1.65 }}>{item.text}</div>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: '2.5rem',
+          borderTop: '1px solid #EAE3D6',
+          paddingTop: '2.5rem',
+        }}>
+          {values.map((item, i) => (
+            <div
+              key={item.title}
+              className={`fade-in-up stagger-${(i % 4) + 1}`}
+              style={{ borderLeft: '2px solid #C9A84C', paddingLeft: '1.25rem' }}
+            >
+              <div style={{ fontFamily: "'Playfair Display', serif", color: '#C9A84C', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
+                {item.num}
               </div>
-            )
-          })}
+              <div style={{ color: '#1a2e26', fontWeight: 700, fontSize: '0.95rem', marginBottom: '0.4rem', fontFamily: "'Playfair Display', serif" }}>{item.title}</div>
+              <div style={{ color: '#64748B', fontSize: '0.82rem', lineHeight: 1.7 }}>{item.text}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

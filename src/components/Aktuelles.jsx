@@ -1,4 +1,5 @@
-import { Calendar, Tag, ArrowRight, MapPin } from 'lucide-react'
+import { useState } from 'react'
+import { Calendar, Tag, ArrowRight, MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const hubelstuebliNews = [
   {
@@ -8,25 +9,9 @@ const hubelstuebliNews = [
     title: 'Feiern im Hübelstübli',
     excerpt:
       'Unser Hübelstübli ist die passende Location für kleine Anlässe bis 35 Personen. Ob Geburtstagsfeier, Weihnachtsanlass, Apéro oder Generalversammlung: Wir begleiten Ihren Anlass persönlich und unkompliziert.',
-    image: 'https://www.galloway-schweiz.ch/assets/Images/Einkaufen-Degustieren/IMG_6437__FocusFillWyIwLjAwIiwiMC4wMCIsMTM2Niw2ODNd.jpg',
-  },
-  {
-    id: 2,
-    category: 'Business',
-    dateStr: 'Nach Vereinbarung',
-    title: 'Seminare & Firmenanlässe',
-    excerpt:
-      'Für Teams und Unternehmen bietet das Hübelstübli einen ruhigen, ländlichen Rahmen für Sitzungen, Workshops und kleinere Seminare mit regionaler Verpflegung.',
-    image: 'https://plus.unsplash.com/premium_photo-1667514668700-9be133c3dc20?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 3,
-    category: 'Privat',
-    dateStr: 'Wochenende & Abendtermine',
-    title: 'Private Feiern mit Hofcharakter',
-    excerpt:
-      'Von der kleinen Familienfeier bis zum Apéro mit Freunden: Das Hübelstübli verbindet gemütliche Atmosphäre mit Produkten direkt vom Hof.',
-    image: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    images: [
+      'https://www.galloway-schweiz.ch/assets/Images/Einkaufen-Degustieren/IMG_6437__FocusFillWyIwLjAwIiwiMC4wMCIsMTM2Niw2ODNd.jpg',
+    ],
   },
 ]
 
@@ -42,6 +27,75 @@ const upcomingEvents = [
   { date: '11. Jul 2026', title: 'Sommerabend mit Hofspezialitäten', location: 'Hübelstübli, Münchwilen AG' },
   { date: '26. Sep 2026', title: 'Herbstgenuss & Most', location: 'Hübelstübli, Münchwilen AG' },
 ]
+
+function ImageSlider({ images }) {
+  const [index, setIndex] = useState(0)
+
+  if (!images || images.length === 0) return null
+
+  const prev = () => setIndex((i) => (i - 1 + images.length) % images.length)
+  const next = () => setIndex((i) => (i + 1) % images.length)
+
+  const arrowStyle = {
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    width: '32px',
+    height: '32px',
+    borderRadius: '50%',
+    border: 'none',
+    backgroundColor: 'rgba(26,46,38,0.55)',
+    color: '#F5F0E8',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    zIndex: 2,
+  }
+
+  return (
+    <div style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
+      <div style={{
+        height: '100%',
+        backgroundImage: `url(${images[index]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }} />
+      {images.length > 1 && (
+        <>
+          <button onClick={prev} aria-label="Vorheriges Bild" style={{ ...arrowStyle, left: '0.75rem' }}>
+            <ChevronLeft size={18} />
+          </button>
+          <button onClick={next} aria-label="Nächstes Bild" style={{ ...arrowStyle, right: '0.75rem' }}>
+            <ChevronRight size={18} />
+          </button>
+          <div style={{
+            position: 'absolute', bottom: '0.85rem', left: '50%', transform: 'translateX(-50%)',
+            display: 'flex', gap: '0.4rem', zIndex: 2,
+          }}>
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                aria-label={`Bild ${i + 1} anzeigen`}
+                style={{
+                  width: i === index ? '18px' : '6px',
+                  height: '6px',
+                  borderRadius: '3px',
+                  border: 'none',
+                  backgroundColor: i === index ? '#C9A84C' : 'rgba(255,255,255,0.5)',
+                  cursor: 'pointer',
+                  transition: 'width 0.2s, background-color 0.2s',
+                  padding: 0,
+                }}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
 
 export default function Aktuelles() {
   return (
@@ -68,75 +122,65 @@ export default function Aktuelles() {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
-          {/* News Articles */}
+          {/* Hübelstübli Feature */}
           <div style={{ gridColumn: 'span 2' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
-              {hubelstuebliNews.map((item, i) => (
-                <article key={item.id} className={`fade-in-up stagger-${i + 1}`} style={{
-                  backgroundColor: 'rgba(255,255,255,0.04)',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: '4px',
-                  overflow: 'hidden',
-                  transition: 'background 0.2s, border-color 0.2s, transform 0.2s',
-                  cursor: 'pointer',
-                }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; e.currentTarget.style.borderColor = 'rgba(201,168,76,0.2)'; e.currentTarget.style.transform = 'translateY(-3px)' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)' }}
-                >
-                  {/* Image */}
+            {hubelstuebliNews.filter((item) => item.id === 1).map((item) => (
+              <article key={item.id} className="fade-in-up" style={{
+                backgroundColor: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '4px',
+                overflow: 'hidden',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+              }}>
+                {/* Image Slider */}
+                <div style={{ position: 'relative' }}>
+                  <ImageSlider images={item.images} />
                   <div style={{
-                    height: '180px',
-                    backgroundImage: ` url(${item.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    position: 'relative',
+                    position: 'absolute', top: '1rem', left: '1rem', zIndex: 2,
+                    backgroundColor: categoryColor[item.category] || '#2D4A3E',
+                    border: `1px solid rgba(201,168,76,0.3)`,
+                    display: 'flex', alignItems: 'center', gap: '0.3rem',
+                    padding: '0.25rem 0.65rem', borderRadius: '2px',
                   }}>
-              
-                    <div style={{
-                      position: 'absolute', top: '1rem', left: '1rem',
-                      backgroundColor: categoryColor[item.category] || '#2D4A3E',
-                      border: `1px solid rgba(201,168,76,0.3)`,
-                      display: 'flex', alignItems: 'center', gap: '0.3rem',
-                      padding: '0.25rem 0.65rem', borderRadius: '2px',
-                    }}>
-                      <Tag size={10} color="#C9A84C" />
-                      <span style={{ color: '#C9A84C', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                        {item.category}
-                      </span>
-                    </div>
+                    <Tag size={10} color="#C9A84C" />
+                    <span style={{ color: '#C9A84C', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                      {item.category}
+                    </span>
                   </div>
-                  {/* Content */}
-                  <div style={{ padding: '1.5rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.75rem' }}>
-                      <Calendar size={12} color="#C9A84C" />
-                      <span style={{ color: 'rgba(245,240,232,0.5)', fontSize: '0.72rem', letterSpacing: '0.04em' }}>{item.dateStr}</span>
-                    </div>
-                    <h3 style={{
-                      fontFamily: "'Playfair Display', serif",
-                      color: '#F5F0E8',
-                      fontSize: '1.05rem',
-                      lineHeight: 1.4,
-                      margin: '0 0 0.75rem',
-                      fontWeight: 600,
-                    }}>
-                      {item.title}
-                    </h3>
-                    <p style={{ color: 'rgba(245,240,232,0.6)', fontSize: '0.82rem', lineHeight: 1.7, margin: '0 0 1.25rem' }}>
-                      {item.excerpt}
-                    </p>
-                    <button style={{
-                      display: 'flex', alignItems: 'center', gap: '0.4rem',
-                      background: 'none', border: 'none', padding: 0,
-                      color: '#C9A84C', cursor: 'pointer', fontSize: '0.78rem', fontWeight: 700,
-                      letterSpacing: '0.06em', fontFamily: "'Montserrat', sans-serif",
-                    }}>
-                      Kontaktieren Sie uns <ArrowRight size={13} />
-                    </button>
+                </div>
+                {/* Content */}
+                <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.75rem' }}>
+                    <Calendar size={12} color="#C9A84C" />
+                    <span style={{ color: 'rgba(245,240,232,0.5)', fontSize: '0.72rem', letterSpacing: '0.04em' }}>{item.dateStr}</span>
                   </div>
-                </article>
-              ))}
-            </div>
+                  <h3 style={{
+                    fontFamily: "'Playfair Display', serif",
+                    color: '#F5F0E8',
+                    fontSize: '1.4rem',
+                    lineHeight: 1.4,
+                    margin: '0 0 1rem',
+                    fontWeight: 600,
+                  }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ color: 'rgba(245,240,232,0.6)', fontSize: '0.9rem', lineHeight: 1.8, margin: '0 0 1.5rem', flex: 1 }}>
+                    {item.excerpt}
+                  </p>
+                  <a href="#kontakt" style={{
+                    display: 'flex', alignItems: 'center', gap: '0.4rem',
+                    background: 'none', border: 'none', padding: 0,
+                    color: '#C9A84C', cursor: 'pointer', fontSize: '0.78rem', fontWeight: 700,
+                    letterSpacing: '0.06em', fontFamily: "'Montserrat', sans-serif",
+                    textDecoration: 'none',
+                  }}>
+                    Kontaktieren Sie uns <ArrowRight size={13} />
+                  </a>
+                </div>
+              </article>
+            ))}
           </div>
 
           {/* Sidebar: Events */}
