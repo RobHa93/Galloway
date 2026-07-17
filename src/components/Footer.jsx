@@ -20,7 +20,7 @@ const footerLinks = {
   Mehr: [
     { label: 'Brennholz', href: '#hofladen:brennholz' },
     { label: 'Geschenke', href: '#hofladen:geschenke' },
-    { label: 'Partner', href: 'https://www.galloway-schweiz.ch/partner/' },
+    { label: 'Partner', href: '#verband:partner' },
   ],
 }
 

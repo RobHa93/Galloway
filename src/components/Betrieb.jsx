@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Leaf, Mountain, Tractor, Handshake, Info } from 'lucide-react'
 import rindIcon from '../assets/img/rind.svg'
 import hirschIcon from '../assets/img/hirsch.svg'
@@ -55,6 +55,20 @@ export default function Betrieb() {
   const [activeTab, setActiveTab] = useState('tiere')
   const [activeAnimal, setActiveAnimal] = useState(null)
   const selectedAnimal = animalInfo.find((animal) => animal.id === activeAnimal)
+
+  useEffect(() => {
+    const applyHash = () => {
+      const prefix = '#verband:'
+      if (!window.location.hash.startsWith(prefix)) return
+      const id = window.location.hash.slice(prefix.length)
+      if (!tabs.some((tab) => tab.id === id)) return
+      setActiveTab(id)
+      document.getElementById('verband')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    applyHash()
+    window.addEventListener('hashchange', applyHash)
+    return () => window.removeEventListener('hashchange', applyHash)
+  }, [])
 
   return (
     <section id="verband" style={sectionStyle}>
